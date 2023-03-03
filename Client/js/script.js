@@ -28,6 +28,7 @@ function clock (){
   },1000)
 }
 const randomWord = () =>{
+  correctWordCount = 0;
   console.log("Random called")
   clock()
   const wordList = turnArrToString(Words)
@@ -35,7 +36,8 @@ const randomWord = () =>{
 }
 
 const easyWords = () =>{
-   clock()
+  correctWordCount = 0; 
+  clock()
   Words =GetWords(`easy`)
   const wordList = turnArrToString(Words)
    display.textContent =wordList;
@@ -48,6 +50,7 @@ const mediumWords = () =>{
 }
 
 const hardWords = () => {
+  correctWordCount = 0;
   clock()
   Words =GetWords(`hard`)
   const wordList = turnArrToString(Words)
