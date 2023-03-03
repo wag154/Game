@@ -2,11 +2,11 @@ const time = document.querySelector("#Timer");
 const DisplayWords = document.querySelector("#Words")
 const form = document.querySelector("#Dis")
 var display = document.querySelector("#TextDisplay")
-const Words = ["hello","the","end","world","word","blue"];
+var Words = ["hello","the","end","world","word","blue"];
 
 var TimerUp = false;
 
-let TimeSecond = 60;
+var TimeSecond = 60;
 
 const CheckWords = (words) =>{
 
@@ -46,8 +46,14 @@ const countDown = setInterval (()=>{
 
 const TimerOver = (e)=>{
   e.preventDefault()
-  CheckWords(e.target.TextInput.value)
-  e.target.TextInput.value = "";
+  if (TimeSecond <= 0){
+    display.textContent = "You Entered After the time was up!"
+  }
+  else {
+    clearInterval(countDown)
+    CheckWords(e.target.TextInput.value)
+    e.target.TextInput.value = "";
+  }
 
 }
 async function GetWords (Difficulty) {
