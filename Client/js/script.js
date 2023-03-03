@@ -17,28 +17,28 @@ const turnArrToString = (words) =>{
 }
 const randomWord = () =>{
   console.log("Random called")
-  clockCall()
+  //clockCall()
   const wordList = turnArrToString(Words)
-  display.textContent = wordLists;
+  display.textContent = wordList;
 }
 
 const easyWords = () =>{
-  clockCall()
-   const words = GetWords(`Easy`);
-   const wordList = turnArrToString(words)
+  //clockCall()
+  Words =GetWords(`easy`)
+  const wordList = turnArrToString(Words)
    display.textContent =wordList;
 }
 const mediumWords = () =>{
-  clockCall()
-  const words = GetWords(`medium`)
-  turnArrToString(words)
+ // clockCall()
+ Words =GetWords(`medium`)
+  const wordList = turnArrToString(Words)
   display.textContent =wordList;
 }
 
 const hardWords = () => {
-  clockCall()
-  const words =GetWords(`hard`)
-  turnArrToString(words)
+//  clockCall()
+  Words =GetWords(`hard`)
+  const wordList = turnArrToString(Words)
   display.textContent =wordList;
 }
 
@@ -73,8 +73,6 @@ const CheckWords = (words) =>{
   }
   display.textContent = `You got ${correctWordCount} correct!`;
 }
-
-
   const countDown = setInterval (()=>{
     TimeSecond --;
     time.textContent = `${TimeSecond} Seconds`

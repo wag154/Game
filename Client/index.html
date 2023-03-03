@@ -10,16 +10,14 @@
 </head>
     <body>
         <h1>Speed Typing Game</h1>
-        <section >
-            <form id="difficultySection">
+        <section id="difficultySection" >
                 <h2>Choose your sentence difficulty</h2>
-                <input type = "submit" value = "easy">
-                <input type = "submit" value = "medium">
-                <input type = "submit" value = "hard">
-                <input type = "submit" value = "random">
+                <button onclick = "easyWords()">easy</button>
+                <button onclick = "mediumWords()">medium</button>
+                <button onclick="hardWords()">hard</button>
+                <button onclick="randomWord()">randoms</button>
                 <h3 id="Timer">1 minute</h3>
                 <p id="Words">Your Sentence will generate here.</p>
-            </form>
         </section>
         <section >
             <form id="inputSection">
