@@ -1,6 +1,6 @@
 const time = document.querySelector("#Timer");
-const DisplayWords = document.querySelector("#Words")
-const form = document.querySelector("#inputSection form")
+const formInput = document.querySelector("#inputSection")
+const formDisplay = document.querySelector("#difficultySection")
 var display = document.querySelector("#Words")
 var Words = ["hello","the","end","world","word","blue"];
 var correctWordCount = 0;
@@ -16,22 +16,27 @@ const turnArrToString = (words) =>{
   return temp
 }
 const randomWord = () =>{
+  console.log("Random called")
+  clockCall()
   const wordList = turnArrToString(Words)
   display.textContent = wordLists;
 }
 
 const easyWords = () =>{
+  clockCall()
    const words = GetWords(`Easy`);
    const wordList = turnArrToString(words)
    display.textContent =wordList;
 }
 const mediumWords = () =>{
+  clockCall()
   const words = GetWords(`medium`)
   turnArrToString(words)
   display.textContent =wordList;
 }
 
 const hardWords = () => {
+  clockCall()
   const words =GetWords(`hard`)
   turnArrToString(words)
   display.textContent =wordList;
@@ -55,7 +60,6 @@ const CheckWords = (words) =>{
     }
     
     else {
-      console.log(word)
       wordsArr.push(word);
       word = "";
     }
@@ -70,16 +74,17 @@ const CheckWords = (words) =>{
   display.textContent = `You got ${correctWordCount} correct!`;
 }
 
-const countDown = setInterval (()=>{
-  TimeSecond --;
-  time.textContent = `${TimeSecond} Seconds`
- if (TimeSecond == 0){
-   TimerUp = true;
-   time.textContent = "TIME UP!"
-   clearInterval(countDown);
- }
-},1000)
 
+  const countDown = setInterval (()=>{
+    TimeSecond --;
+    time.textContent = `${TimeSecond} Seconds`
+    if (TimeSecond == 0){
+      TimerUp = true;
+      time.textContent = "TIME UP!"
+      clearInterval(countDown);
+    }
+  },1000)
+  
 const TimerOver = (e)=>{
   e.preventDefault()
   if (TimeSecond <= 0){
@@ -89,7 +94,7 @@ const TimerOver = (e)=>{
     clearInterval(countDown)
     CheckWords(e.target.typing.value)
     timeTaken()
-    e.target.TextInput.value = "";
+    e.target.typing.value = "";
   }
 
 }
@@ -115,8 +120,8 @@ async function GetWords (Difficulty) {
   time.textContent = `You Manged to do ${correctWordCount} in ${taken} seconds!`
 }
 
-form.addEventListener("submit",TimerOver)
-form.addEventListener("easy",easyWords)
-form.addEventListener("medium",mediumWords)
-form.addEventListener("hard",hardWords)
-form.addEventListener("random",randomWord)
+formInput.addEventListener("submit",TimerOver)
+formDisplay.addEventListener("easy",easyWords)
+formDisplay.addEventListener("medium",mediumWords)
+formDisplay.addEventListener("hard",hardWords)
+formDisplay.addEventListener("random",randomWord)
