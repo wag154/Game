@@ -8,15 +8,26 @@ var TimerUp = false;
 
 var TimeSecond = 60;
 
-const easyWords = () =>{
+const turnArrToString = (words) =>{
+  let temp = "";
+  words.forEach((word) =>{
+    temp += word;
+  })
+  return temp
+}
 
+const easyWords = () =>{
+   const words = GetWords(`Easy`);
+   turnArrToString(words)
 }
 const mediumWords = () =>{
-
+  const words = GetWords(`medium`)
+  turnArrToString(words)
 }
 
 const hardWords = () => {
-
+  const words =GetWords(`hard`)
+  turnArrToString(words)
 }
 
 const displayWords = (words) =>{
@@ -80,7 +91,6 @@ async function GetWords (Difficulty) {
     const resp = await fetch(`127.0.0.1:3000/Get${Difficulty}Words`)
     if (resp.ok){
       const data = await resp.json()
-      CheckWords(data);
     }
     else {
       throw "Error status code :",resp.status;
