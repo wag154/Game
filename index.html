@@ -6,13 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Speed Typing Game</title>
     <link rel="stylesheet" href="./index.css">
+    <script src="./index.js"></script>
 </head>
     <body>
         <h1>Speed Typing Game</h1>
-        <form id="">
-            <label for="typingInput">Speed Word Type</label>
-            <input type="text" id="typingInput" name="typing" placeholder="Type the sentence in the shortest possible time!" required="required">
-            <input type="submit" value="Submit">
-        </form>
+        <section>
+            <h2>Choose your sentence difficulty</h2>
+            <button id="easy">Easy</button>
+            <button>Medium</button>
+            <button>Hard</button>
+            <p>Word</p>
+        </section>
+        <section>
+            <form>
+                <label for="typingInput">Speed Word Type</label>
+                <input type="text" id="typingInput" name="typing" placeholder="Type the sentence in the shortest possible time!" required="required">
+                <input type="submit" value="Submit">
+            </form>
+        </section>
     </body>
 </html>
