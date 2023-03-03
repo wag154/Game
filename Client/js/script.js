@@ -16,7 +16,7 @@ const turnArrToString = (words) =>{
   return temp
 }
 function clock (){
-
+  TimeSecond = 60;
   countDown = setInterval (()=>{
     TimeSecond --;
     time.textContent = `${TimeSecond} Seconds`
