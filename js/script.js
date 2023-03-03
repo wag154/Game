@@ -97,7 +97,10 @@ async function GetWords (Difficulty) {
       return data;
     }
     else {
-      throw "Error status code :",resp.status;
+     const wordDis = turnArrToString(Words)
+     display.textContent = wordDis;
+
+      throw "Error status code :" + resp.status;
     }
   }
   catch{((e)=> console.log(e))}
