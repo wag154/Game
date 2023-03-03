@@ -1,4 +1,7 @@
 const time = document.querySelector("#Timer");
+const DisplayWords = document.querySelector("#Words")
+const form = document.querySelector("#Dis")
+
 let TimeSecond = 60;
 
 const countDown = setInterval (()=>{
@@ -8,7 +11,9 @@ const countDown = setInterval (()=>{
     clearInterval(countDown);
   }
 },1000)
-
+const TimerOver = ()=>{
+  
+}
 async function GetWords (Difficulty) {
   try {
     const resp = await fetch(`127.0.0.1:3000/Get${Difficulty}Words`)
@@ -23,3 +28,12 @@ async function GetWords (Difficulty) {
   catch{((e)=> console.log(e))}
 }
 
+const ExampleWords = () =>{
+  const Words = ["hello","the","end","world","word","blue"];
+}
+
+async function timeTaken(Complete){
+  
+}
+
+form.addEventListener("Submit",TimerOver)
