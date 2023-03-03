@@ -3,7 +3,7 @@ const DisplayWords = document.querySelector("#Words")
 const form = document.querySelector("#Dis")
 var display = document.querySelector("#TextDisplay")
 var Words = ["hello","the","end","world","word","blue"];
-
+var correctWordCount = 0;
 var TimerUp = false;
 
 var TimeSecond = 60;
@@ -44,7 +44,6 @@ const CheckWords = (words) =>{
   words += " "
   let wordsArr = [];
   let word = "";
-  let correctWordCount = 0;
 
   for (let i = 0; i < words.length;i++){
     if (words[i] != " "){
@@ -85,15 +84,17 @@ const TimerOver = (e)=>{
   else {
     clearInterval(countDown)
     CheckWords(e.target.TextInput.value)
+    timeTaken()
     e.target.TextInput.value = "";
   }
 
 }
 async function GetWords (Difficulty) {
   try {
-    const resp = await fetch(`127.0.0.1:3000/Get${Difficulty}Words`)
+    const resp = await fetch(`127.0.0.1:3000/${Difficulty}`)
     if (resp.ok){
       const data = await resp.json()
+      return data;
     }
     else {
       throw "Error status code :",resp.status;
@@ -102,8 +103,9 @@ async function GetWords (Difficulty) {
   catch{((e)=> console.log(e))}
 }
 
-async function timeTaken(Complete){
-  
+ function timeTaken(){
+  const taken = 60 - TimeSecond;
+  time.textContent = `You Manged to do ${correctWordCount} in ${taken} seconds!`
 }
 
 form.addEventListener("submit",TimerOver)
