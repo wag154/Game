@@ -1,7 +1,73 @@
-*{
-  margin: 0;
+body {
+  background-color: greenyellow;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  width: 100%;
+  min-height: 70%;
+  transform: translate(-50%, -50%);
+  background-color: #5C8001;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: arial;
+  text-align: center;
+}
+h1 {
+  font-size: 3rem;
+  color: #F3DE2C;
+  font-weight: bold;
+}
+h2 {
+  color: #F3DE2C;
+  font-weight: bold;
 }
 
-h1{
-  margin :50%
+button {
+  font-size: 2rem;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #F3DE2C;
+  font-weight: bold;
+}
+
+#typeSentence {
+  color: #BEEC6F;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bolder;
+}
+
+#typingInput {
+  height: 50px;
+  width: 500px;
+  border-radius: 5px;
+  border: 3px solid #BEEC6F;
+  color: #2C3D01;
+  font-size: large;
+  font-weight: bold;
+}
+
+#submitButton {
+  font-size: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 2px solid #BEEC6F;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #F3DE2C; 
+  font-weight: bold;
+}
+
+h3 {
+  color: #BEEC6F;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bolder; 
+}
+
+#Timer {
+  font-size: 3rem;
 }
