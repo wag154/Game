@@ -17,9 +17,11 @@ body {
 h1 {
     font-size: 3rem;
     color: #F3DE2C;
+    font-weight: bold;
 }
 h2 {
     color: #F3DE2C;
+    font-weight: bold;
 }
 
 button {
@@ -29,6 +31,7 @@ button {
     border-radius: 5px;
     cursor: pointer;
     background-color: #F3DE2C;
+    font-weight: bold;
 }
 
 #typeSentence {
@@ -55,6 +58,7 @@ button {
     border-radius: 5px;
     cursor: pointer;
     background-color: #F3DE2C; 
+    font-weight: bold;
 }
 
 h3 {
@@ -62,4 +66,8 @@ h3 {
     text-align: center;
     font-size: 2rem;
     font-weight: bolder; 
+}
+
+#Timer {
+    font-size: 3rem;
 }
