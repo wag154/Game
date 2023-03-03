@@ -106,8 +106,7 @@ async function GetWords (Difficulty) {
   try {
     const resp = await fetch(`127.0.0.1:3000/${Difficulty}`)
     if (resp.ok){
-      const data = await resp.json()
-      return data;
+      return await resp;
     }
     else {
      const wordDis = turnArrToString(Words)
