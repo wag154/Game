@@ -5,8 +5,8 @@ var display = document.querySelector("#Words")
 var Words = ["hello","the","end","world","word","blue"];
 var correctWordCount = 0;
 var TimerUp = false;
-
 var TimeSecond = 60;
+var countDown = undefined;
 
 const turnArrToString = (words) =>{
   let temp = "";
@@ -15,28 +15,40 @@ const turnArrToString = (words) =>{
   })
   return temp
 }
+function clock (){
+
+  countDown = setInterval (()=>{
+    TimeSecond --;
+    time.textContent = `${TimeSecond} Seconds`
+    if (TimeSecond == 0){
+      TimerUp = true;
+      time.textContent = "TIME UP!"
+      clearInterval(countDown);
+    }
+  },1000)
+}
 const randomWord = () =>{
   console.log("Random called")
-  //clockCall()
+  clock()
   const wordList = turnArrToString(Words)
   display.textContent = wordList;
 }
 
 const easyWords = () =>{
-  //clockCall()
+   clock()
   Words =GetWords(`easy`)
   const wordList = turnArrToString(Words)
    display.textContent =wordList;
 }
 const mediumWords = () =>{
- // clockCall()
+  clock()
  Words =GetWords(`medium`)
   const wordList = turnArrToString(Words)
   display.textContent =wordList;
 }
 
 const hardWords = () => {
-//  clockCall()
+  clock()
   Words =GetWords(`hard`)
   const wordList = turnArrToString(Words)
   display.textContent =wordList;
@@ -73,16 +85,7 @@ const CheckWords = (words) =>{
   }
   display.textContent = `You got ${correctWordCount} correct!`;
 }
-  const countDown = setInterval (()=>{
-    TimeSecond --;
-    time.textContent = `${TimeSecond} Seconds`
-    if (TimeSecond == 0){
-      TimerUp = true;
-      time.textContent = "TIME UP!"
-      clearInterval(countDown);
-    }
-  },1000)
-  
+    
 const TimerOver = (e)=>{
   e.preventDefault()
   if (TimeSecond <= 0){
