@@ -12,42 +12,42 @@ const internal = require("stream");
 const getWords = (difficultyNumber, res) => {
     let wordArr = [];
     wordArr.push(jsonData[0].text)
-    let newWordArr;
+    console.log(wordArr)
+    let newWordArr = "";
 
     let randomNumber = Math.floor(Math.random()*difficultyNumber)+1;
-    randomNumber = 2
+    let indexOfSpaceBeforeWord;
+    let indexOfSpaceAfterWord;
     if (randomNumber == 1) {
         indexOfSpaceBeforeWord = -1;
     }
-    let indexOfSpaceBeforeWord;
-    let indexOfSpaceAfterWord;
-    console.log(randomNumber)
 
     for (let iterator = 0; iterator < difficultyNumber; iterator++) {
-        console.log("iterator", iterator)
-        for (let letterIndex = 0; letterIndex < wordArr.length; letterIndex++) {
-            let counter = 0;
-            if (letterIndex == " ") {
-                counter += 1;
+        let spacesCounter = 0;
+        for (let letterIndex = 0; letterIndex < wordArr[0].length; letterIndex++) {
+            if (wordArr[0][letterIndex] == " ") {
+                spacesCounter += 1;
+                if (spacesCounter == randomNumber) {
+                    indexOfSpaceBeforeWord = letterIndex;
+                    letterIndex += 1
+                } 
             }
-            if (counter == difficultyNumber-1) {
-                indexOfSpaceBeforeWord = letterIndex;
-                console.log("count before", counter)
-            }
-            if (counter == difficultyNumber) {
+            else if (spacesCounter == randomNumber+1) {
                 indexOfSpaceAfterWord = letterIndex;
-                console.log("count after", counter)
                 break;
             }
         }
-        newWordArr = wordArr.slice(indexOfSpaceBeforeWord+1, indexOfSpaceAfterWord);
-        randomNumber = Math.floor(Math.random()*difficultyNumber);
-        randomNumber = 2
-        console.log("r:", randomNumber)
-        console.log("indexes", indexOfSpaceBeforeWord+1, indexOfSpaceAfterWord)
-        console.log();
+        randomNumber = Math.floor(Math.random()*difficultyNumber)+1;
+
+        let pushCounter = indexOfSpaceBeforeWord+1;
+        while (pushCounter != indexOfSpaceAfterWord-1) {
+            newWordArr += wordArr[0][pushCounter];
+            pushCounter += 1;
+        }
+        newWordArr += " ";
+
     }
-    console.log(newWordArr)
+   //newWordArr = wordArr[0].slice(26, 31)
     res.send(newWordArr)
 }
 
