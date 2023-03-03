@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speed Typing Game</title>
+    <link rel="stylesheet" href="/Client/Css/style.css">
+</head>
+    <body>
+        <h1>Speed Typing Game</h1>
+        <section id="difficultySection">
+            <h2>Choose your sentence difficulty</h2>
+            <input type = "submit" value = "easy">
+            <input type = "submit" value = "medium">
+            <input type = "submit" value = "hard">
+            <input type = "submit" value = "random">
+            <h3 id="Timer">0:00:00</h3>
+            <p id="Words">Your Sentence will generate here.</p>
+        </section>
+        <section id="inputSection">
+            <form>
+                <label for="typingInput"></label>
+                <input type="text"  name="typing" placeholder="Type the sentence in the shortest possible time!" required="required">
+                <input type="submit" value="submit">
+            </form>
+        </section>
+        <script src="/Client/js/script.js"></script>
+    </body>
+</html>

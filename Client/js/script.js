@@ -1,7 +1,7 @@
 const time = document.querySelector("#Timer");
 const DisplayWords = document.querySelector("#Words")
-const form = document.querySelector("#Dis")
-var display = document.querySelector("#TextDisplay")
+const form = document.querySelector("#inputSection form")
+var display = document.querySelector("#Words")
 var Words = ["hello","the","end","world","word","blue"];
 var correctWordCount = 0;
 var TimerUp = false;
@@ -14,6 +14,10 @@ const turnArrToString = (words) =>{
     temp += `${word} ` ;
   })
   return temp
+}
+const randomWord = () =>{
+  const wordList = turnArrToString(Words)
+  display.textContent = wordLists;
 }
 
 const easyWords = () =>{
@@ -83,7 +87,7 @@ const TimerOver = (e)=>{
   }
   else {
     clearInterval(countDown)
-    CheckWords(e.target.TextInput.value)
+    CheckWords(e.target.typing.value)
     timeTaken()
     e.target.TextInput.value = "";
   }
@@ -115,3 +119,4 @@ form.addEventListener("submit",TimerOver)
 form.addEventListener("easy",easyWords)
 form.addEventListener("medium",mediumWords)
 form.addEventListener("hard",hardWords)
+form.addEventListener("random",randomWord)
