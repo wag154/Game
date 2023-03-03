@@ -8,8 +8,26 @@ var TimerUp = false;
 
 var TimeSecond = 60;
 
-const CheckWords = (words) =>{
+const easyWords = () =>{
 
+}
+const mediumWords = () =>{
+
+}
+
+const hardWords = () => {
+
+}
+
+const displayWords = (words) =>{
+  let temp = "";
+  words.forEach((word) =>{
+    temp += word
+  })
+  display.textContent = temp
+}
+const CheckWords = (words) =>{
+  words += " "
   let wordsArr = [];
   let word = "";
   let correctWordCount = 0;
@@ -18,8 +36,9 @@ const CheckWords = (words) =>{
     if (words[i] != " "){
       word += words[i].toLowerCase();
     }
-
+    
     else {
+      console.log(word)
       wordsArr.push(word);
       word = "";
     }
