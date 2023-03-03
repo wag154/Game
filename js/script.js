@@ -11,23 +11,26 @@ var TimeSecond = 60;
 const turnArrToString = (words) =>{
   let temp = "";
   words.forEach((word) =>{
-    temp += word;
+    temp += `${word} ` ;
   })
   return temp
 }
 
 const easyWords = () =>{
    const words = GetWords(`Easy`);
-   turnArrToString(words)
+   const wordList = turnArrToString(words)
+   display.textContent =wordList;
 }
 const mediumWords = () =>{
   const words = GetWords(`medium`)
   turnArrToString(words)
+  display.textContent =wordList;
 }
 
 const hardWords = () => {
   const words =GetWords(`hard`)
   turnArrToString(words)
+  display.textContent =wordList;
 }
 
 const displayWords = (words) =>{
