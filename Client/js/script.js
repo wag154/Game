@@ -20,7 +20,7 @@ function clock (){
   countDown = setInterval (()=>{
     TimeSecond --;
     time.textContent = `${TimeSecond} Seconds`
-    if (TimeSecond == 0){
+    if (TimeSecond == 0 || TimeSecond < 0){
       TimerUp = true;
       time.textContent = "TIME UP!"
       clearInterval(countDown);
